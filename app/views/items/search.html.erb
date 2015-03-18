@@ -1,0 +1,24 @@
+
+<h1> Search Page</h1>
+<p>Haven't figured out how to make this page look pretty with Bootstrap</p>
+<%= form_tag({controller: "items", action: "search"}, :method => "get", id: "search-form") do %>
+	
+		<%= select_tag(:search_type, options_for_select([['category', 'cat'], ['title', 'title']])) %>
+
+		<span id = "radio_1", class = "radio-inline">
+			<%= radio_button_tag :and_or, "AND" %>
+			<%= label_tag :and, "AND" %>
+		</span>
+		<span id = "radio_2", class = "radio-inline">
+			<%= radio_button_tag :and_or, "OR" %>
+			<%= label_tag :or, "OR" %>
+		</span>
+
+	<span id = "search">
+	<%= text_field_tag :search, params[:search], placeholder: "Search for..." %>
+	</span>
+	
+	
+
+  <%= submit_tag "Search", :name => nil %>
+<% end %>
